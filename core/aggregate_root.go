@@ -1,5 +1,11 @@
 package core
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
+func NewID() string {
+	return primitive.NewObjectID().Hex()
+}
+
 type IAggregateRoot interface {
 	AddEvent(DomainEvent)
 	Events() []DomainEvent
